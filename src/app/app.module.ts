@@ -5,18 +5,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ImageCropperComponent } from './image-cropper/image-cropper.component';
+import { MaterialModule } from "./material/material.module";
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ImageCropperComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MaterialModule
   ],
 
   providers: [],

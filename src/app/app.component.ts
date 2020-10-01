@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { Record } from './record';
 import { ScriptService } from './script.service';
 declare let pdfMake: any ;
+import { ImageCropperComponent } from './image-cropper/image-cropper.component';
+import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,7 +14,7 @@ export class AppComponent {
 
   record = new Record();
 
-  constructor(private scriptService: ScriptService) {
+  constructor(public dialog: MatDialog, private scriptService: ScriptService) {
     this.record = JSON.parse(sessionStorage.getItem('record')) || new Record();
     
     console.log('Loading External Scripts');
@@ -131,5 +134,15 @@ export class AppComponent {
     };
 
   }
+
+openDialog(){
+   const dialogConfig= new MatDialogConfig();
+   dialogConfig.disableClose=true;
+   dialogConfig.autoFocus=true;
+   dialogConfig.width="100%";  
+   dialogConfig.height="50%";
+    this.dialog.open(ImageCropperComponent, dialogConfig);
+
+}
 
 }
